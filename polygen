@@ -1,0 +1,839 @@
+//Sources and Citations:
+//Book Image (onStudyCircle) - https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.adazing.com%2Fbook-clipart%2F&psig=AOvVaw1HdMgAJoVsn4OVfi-2eVhL&ust=1666283900218000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCJCgpLLd7PoCFQAAAAAdAAAAABAD
+//Friends Image (onStudyCircle) - https://www.flaticon.com/free-icon/friendship_3362053?term=smile+boy&page=2&position=32&origin=search&related_id=3362053
+//Lightbulb Image (onStudyCircle) - https://www.flaticon.com/free-icon/lightbulb_3176298?term=idea&page=1&position=7&origin=search&related_id=3176298
+//Question Boy Image (onFAQ) - https://www.flaticon.com/free-icon/question_2194227?term=question&page=1&position=59&origin=search&related_id=2194227
+//Smiling Boy Image (onFunFacts) - https://www.flaticon.com/free-icon/adult_3107137?term=boy+smiling&page=1&position=58&origin=search&related_id=3107137
+//Review Tips #1 through #4 (onReviewTips) - https://www.educationcorner.com/habits-of-successful-students.html 
+//Review Tip #5 (onReviewTips) - https://kidshealth.org/en/teens/focused.html 
+//Smiling Group Image (onReviewTips) - https://www.flaticon.com/free-icon/friends_2920017?term=friends+smiling&page=1&position=6&origin=search&related_id=2920017
+//Fun Facts #1 through #5 (onFunFacts) - https://skyprep.com/2021/06/01/7-interesting-facts-about-the-science-of-learning/
+//Smiling Girl Image (onFunFacts) - https://www.flaticon.com/free-icon/happiness_3362093?term=smiling+girl&page=1&position=7&origin=search&related_id=3362093
+//Smiling Boy Image (onFunFacts) - https://www.flaticon.com/free-icon/adult_3107137?term=adult&page=1&position=7&origin=search&related_id=3107137
+//Smiling Boy Image (onGameStart) - https://www.flaticon.com/free-icon/idea_2436837?term=idea&page=1&position=36&origin=search&related_id=2436837
+//Boy Thinking Image (onNumberMemory) - https://www.flaticon.com/free-icon/positive-thinking_2163399?term=girl+thinking&page=1&position=7&origin=search&related_id=2163399
+//Girl Thinking Image (onNumberMemory) - https://www.flaticon.com/free-icon/woman_6507905?term=girl+talking&page=2&position=30&origin=search&related_id=6507905
+//Sleep Icon (onSleep) - https://www.flaticon.com/free-icon/day_2206554?term=sleep&page=1&position=14&origin=search&related_id=2206554
+//Celebrate Icon (onWinGame) - https://www.flaticon.com/free-icon/confetti_864763?term=celebrate&page=1&position=4&origin=search&related_id=864763
+//Star Icon (onWinGame) - https://www.flaticon.com/free-icon/star_448014?term=celebrate&page=1&position=39&origin=search&related_id=448014
+//Boy Celebrate (onWinGame) - https://www.flaticon.com/free-icon/excited_8541363?term=excited&page=1&position=85&origin=search&related_id=8541363
+//Girl Celebrate (onWinGame) - https://www.flaticon.com/free-icon/happiness_2454204?term=girl+happy&page=1&position=84&origin=search&related_id=2454204
+//Second Confetti (onWinGame) - https://www.flaticon.com/free-icon/confetti_2402412?term=confetti&page=1&position=37&origin=search&related_id=2402412
+
+//each screen's buttons organized into functions
+buttonsStudyCircle();
+//Holds the code for all the buttons on the "StudyCircle" screen
+function buttonsStudyCircle() {
+  //Dropdown is on "StudyCircle" screen, takes user to any screen they select
+  //Plays a pop-button sound
+  onEvent("ddScreensOnStudyCircle", "input", function( ) {
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+    
+    var select = getText("ddScreensOnStudyCircle");
+    if(select == "Tips and Strategies") {
+      setScreen("scrnTipsAndStrats");
+    }
+    if(select == "FAQ") {
+      setScreen("scrnFAQ");
+    }
+    if(select == "Fun Facts!") {
+      setScreen("scrnFunFacts");
+    }
+    if(select == "Your Advice?") {
+      setScreen("scrnYourAdvice");
+    }
+    if(select == "Memory Game") {
+      setScreen("scrnGameStart");
+    }
+    if(select == "Sleep Study") {
+      setScreen("scrnSleep");
+    }
+    
+    //Resets the dropdown after being used
+    setProperty("ddScreensOnStudyCircle", "index", 0);
+  });
+}
+buttonsTipsAndStrats();
+//Holds the code for all the buttons on the "TipsAndStrats" screen
+function buttonsTipsAndStrats() {
+  //Button is on "TipsAndStrats" Screen, takes user to the "StudyCircle" Screen
+  //Plays a pop-button sound
+  onEvent("btnHomeOnTipsAndStrats", "click", function( ) {
+    setScreen("scrnStudyCircle");
+    playSound("sound://category_pop/deep_bubble_notification.mp3");
+  });
+  
+  //Dropdown is on "TipsAndStrats" screen, takes user to any screen they select
+  //Plays a pop-button sound
+  onEvent("ddScreensOnTipsAndStrats", "input", function() {
+    playSound("sound://category_pop/deep_bubble_notification.mp3");
+    
+    var select = getText("ddScreensOnTipsAndStrats");
+    if(select == "More Tips and Strategies") {
+      setScreen("scrnMoreTips");
+    }
+    if(select == "FAQ") {
+      setScreen("scrnFAQ");
+    }
+    if(select == "Your Advice?") {
+      setScreen("scrnYourAdvice");
+    }
+    if(select == "Review Our Tips") {
+      setScreen("scrnReviewTips");
+    }
+    if(select == "Memory Game") {
+      setScreen("scrnGameStart");
+    }
+    if(select == "Fun Facts!") {
+      setScreen("scrnFunFacts");
+    }
+    if(select == "Sleep Study") {
+      setScreen("scrnSleep");
+    }
+    
+    //Resets the dropdown after being used
+    setProperty("ddScreensOnTipsAndStrats", "index", 0);
+  });
+}
+buttonsFAQ();
+//Holds the code for all the buttons on the "FAQ" screen
+function buttonsFAQ() {
+  //Dropdown is on the "FAQ" screen, takes user to any screen they select
+  //Plays a pop-button sound
+  onEvent("ddScreensOnFAQ", "input", function() {
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+    
+    var select = getText("ddScreensOnFAQ");
+    if(select == "Tips and Strategies") {
+      setScreen("scrnTipsAndStrats");
+    }
+    if(select == "Review Our Tips") {
+      setScreen("scrnReviewTips");
+    }
+    if(select == "Fun Facts!") {
+      setScreen("scrnFunFacts");
+    }
+    if(select == "Your Advice?") {
+      setScreen("scrnYourAdvice");
+    }
+    if(select == "Memory Game") {
+      setScreen("scrnGameStart");
+    }
+    if(select == "Sleep Study") {
+      setScreen("scrnSleep");
+    }
+    
+    //Resets the dropdown after being used
+    setProperty("ddScreensOnFAQ", "index", 0);
+  });
+  
+  //Button is on "FAQ" screen, takes user to the "StudyCircle" Screen
+  //Plays a pop-button sound
+  onEvent("btnHomeOnFAQ", "click", function( ) {
+    setScreen("scrnStudyCircle");
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+  });
+}
+buttonsYourAdvice();
+//Holds the code for all the buttons on the "YourAdvice" screen
+function buttonsYourAdvice() {
+  //List of posted advice in the "txtCommunityOnYourAdvice" textbox
+  var communityAdvice = ["Adam_430:  I suggest that you always put your phone in another room when studying. This will limit distractions and allow you to focus.", "Eva_76: Drinking water is a good way to refresh your brain and body when you study!", "John_92: For some people, working on digital platforms might be more comfortable than paper. I personally use my tablet to take notes instead of using paper. This helps me keep my work more organized."];
+  //Put the advice text from the "communityAdvice" list into the "txtCommunityOnYourAdvice" textbox
+  var adviceText = "\n" + "\n" + communityAdvice[0] + "\n" + "\n" + communityAdvice[1] + "\n" + "\n" + communityAdvice[2] + "\n";
+  setProperty("txtCommunityOnYourAdvice", "text", "Community Advice:" + adviceText);
+
+  //Button is on the "YourAdvice" Screen, inserts user's input to the top of the "txtCommunity" textbox
+  //Plays a pop-button sound
+  onEvent("btnPostOnYourAdvice", "click", function( ) {
+    playSound("sound://category_pop/deep_bubble_notification.mp3");
+    //Gets the user's text and inserts it to the top of the "communityAdvice" list
+    var inputAdvice = getText("txtUserInputOnYourAdvice");
+    var newAdvice = "User_4703: " + inputAdvice;
+    //Sets the property of the "txtCommunityOnYourAdvice" to the original advice plus the user's new advice
+    adviceText = "\n" + "\n" + newAdvice + adviceText;
+    setProperty("txtCommunityOnYourAdvice", "text", "Community Advice:" + adviceText);
+    
+    //clears the text in the input box
+    setProperty("txtUserInputOnYourAdvice", "text", "");
+  });
+  
+  //Button is on the "YourAdvice" Screen, takes user to the "StudyCircle" Screen
+  //Plays pop-button sound
+  onEvent("btnHomeOnYourAdvice", "click", function( ) {
+    setScreen("scrnStudyCircle");
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+  });
+  
+  //Dropdown is on "YourAdvice" screen, takes user to any screen they select
+  //Plays a pop-button sound
+  onEvent("ddScreensOnYourAdvice", "input", function(){
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+    
+    var select = getText("ddScreensOnYourAdvice");
+    if (select == "Tips and Strategies") {
+      setScreen("scrnTipsAndStrats");
+    }
+    if (select == "Review Our Tips") {
+      setScreen("scrnReviewTips");
+    }
+    if (select == "Fun Facts!") {
+      setScreen("scrnFunFacts");
+    }
+    if (select == "FAQ") {
+      setScreen("scrnFAQ");
+    }
+    if (select == "Memory Game") {
+      setScreen("scrnGameStart");
+    }
+    
+    //Resets the dropdown after being used
+    setProperty("ddScreensOnYourAdvice", "index", 0);
+  });
+}
+buttonsMoreTips();
+//Holds the code for all the buttons on the "MoreTips" screen
+function buttonsMoreTips() {
+  //Button is on the "MoreTips" screen, takes user to the "StudyCircle" Screen
+  //Plays a pop-button sound
+  onEvent("btnHomeOnMoreTips", "click", function( ) {
+   setScreen("scrnStudyCircle");
+   playSound( "sound://category_pop/deep_bubble_notification.mp3");
+  });
+  
+  //Dropdown is on "MoreTips" screen, takes user to any screen they select
+  //Plays pop-button sound
+  onEvent("ddScreensOnMoreTips", "input", function(){
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+    
+    var select = getText("ddScreensOnMoreTips");
+    if(select == "Back to Tips and Strategies") {
+      setScreen("scrnTipsAndStrats");
+    }
+    if(select == "Review Our Tips") {
+      setScreen("scrnReviewTips");
+    }
+    if(select == "Fun Facts!") {
+      setScreen("scrnFunFacts");
+    }
+    if(select == "FAQ") {
+      setScreen("scrnFAQ");
+    }
+    if(select == "Your Advice?"){
+      setScreen("scrnYourAdvice");
+    }
+    if(select == "Memory Game") {
+      setScreen("scrnGameStart");
+    }
+    if(select == "Sleep Study") {
+      setScreen("scrnSleep");
+    }
+    
+    //Resets the dropdown after being used
+    setProperty("ddScreensOnMoreTips", "index", 0);
+  });
+}
+buttonsReviewTips();
+//Holds the code for all the buttons on the "ReviewTips" screen
+function buttonsReviewTips() {
+  //Button is on the "ReviewTips" Screen, takes user to the "StudyCircle" Screen
+  //Plays a pop-button sound
+  onEvent("btnHomeOnReviewTips", "click", function( ) {
+    setScreen("scrnStudyCircle");
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+  });
+  //Button is on the "ReviewTips" Screen, generates a random review tip and displays in the output box
+  //Plays a vibrant-button sound
+  onEvent("btnGenerateOnReviewTips","click", function( ) {
+    playSound("sound://category_points/vibrant_game_ding_touch_1.mp3"); 
+    var generate = randomNumber(1,5) ;
+    if(generate == 1) {
+      setProperty("txtTipsOnReviewTips","text","Tip #1 Your mindset is an extremely important part of studying efficiently. Being positive is key to persistence while learning. Instead of doing negative things like complaining about your workload or thinking about how hard a concept is, you have to find positive things in what you are doing in order to keep pushing. Also, having an ambitious mindset is crucial to studying efficiently. Having goals in mind when you are studying allows you to focus on the purpose of your studies. Ambition in studying also pushes you to learn more and makes you want to succeed while studying. This kind of mentality is crucial for studying efficiently.");
+      setProperty("txtTipsOnReviewTips","background-color", "red");
+    }// end of generate 1
+    if(generate == 2) {
+      setProperty("txtTipsOnReviewTips","text","Tip #2 Sleeping is another crucial aspect of studying efficiently. It refreshes your brain and allows you to learn much better. Taking in and understanding information becomes much more powerful with rest. Not only does sleep help you before you study, but it also benefits you after. You are able to retain the information you studied when you get a good amount of sleep. Comprehending and remembering information with good sleep allows for greater studying efficiency.");
+      setProperty("txtTipsOnReviewTips","background-color","orange");
+    }// end of generate 2
+    if(generate == 3) {
+      setProperty("txtTipsOnReviewTips","text","Tip #3 Studying must take place in a clean and productive environment. This means that your workspace should be a comfortable place where you are able to focus without any distractions. The room should be away from loud noises, such as people talking or cars moving down a busy road. Your phone should also be stored out of reach so that you can remain focused all throughout the study session. Your study environment must contain all the resources you need to study, such as your books and writing utensils. It is a very important part of staying focused and having better study efficiency.");
+      setProperty("txtTipsOnReviewTips","background-color","purple");
+    }// end of generate 3
+    if(generate == 4) {
+      setProperty("txtTipsOnReviewTips","text","Tip #4 Your habits towards learning have a great impact on your learning. Do you do things like taking notes in class, being organized, or asking questions? These are all essential habits that will make your studying efficiency stronger. Taking notes is essential to retaining and reviewing past information. Color coding your notes can help keep them organized. Being an organized student helps you focus and keep track of everything that you need to do. Asking questions when you are confused in class allows you to gain more knowledge on the subjects you are studying. Your habits towards studying significantly impact the efficiency of your studying.");
+      setProperty("txtTipsOnReviewTips","background-color","green");
+    }// end of generate 4
+    if(generate == 5) {
+      setProperty("txtTipsOnReviewTips","text","Tip #5 It's easy to lose track of time when you are trying to do work. In order to study efficiently, you need to be able to manage your time wisely. Don't spend your time playing video games or texting! Instead, map out a schedule to follow when you study. For instance, a schedule could say I will study from 5-7pm and practice piano from 7-9pm. Mapping out plans like these will help you manage your time and keep track of what you need to do. It is important to avoid procrastination when you are trying to manage your time. Don't put off assignments for later when you can do them now! This will not only make more time to do other things, but it will also relieve the stress that procrastination puts on your mind. Managing your time is crucial to studying efficiently.");
+      setProperty("txtTipsOnReviewTips","background-color","blue");
+    }// end of generate 5
+  });
+}
+buttonsFunFacts();
+//Holds the code for all the buttons on the "FunFacts" screen
+function buttonsFunFacts() {
+  //Button is on the "FunFacts" Screen, takes user to the "StudyCircle" Screen
+  //Plays a pop-button sound
+  onEvent("btnHomeOnFunFacts", "click", function( ) {
+    setScreen("scrnStudyCircle");
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+  });
+  //Button is on the "FunFacts" Screen, generates a random fun fact and displays in the output box
+  //Plays a vibrant-button sound
+  onEvent("btnGenerateOnFunFacts","click", function( ) {
+    playSound("sound://category_points/vibrant_game_ding_touch_1.mp3"); 
+    var generate = randomNumber(1,5) ;
+    if(generate == 1) {
+      setProperty("txtFactsOnFunFacts","text","Fun Fact #1 SLEEPS HELPS YOU REMEMBER THINGS: Study Shows that if you sleep an average of atleast 8-10 hours every night, you focus and attention span increases 40 percent!");
+      setProperty("txtFactsOnFunFacts","background-color", "red");
+    }// end of generate 1
+    if(generate == 2) {
+      setProperty("txtFactsOnFunFacts","text","Fun Fact #2 Emotions influence our ability to learn: Research has shown that our emotions affect everything from how we perceive information, how we pay attention, how we remember information and how we solve problems.");
+      setProperty("txtFactsOnFunFacts","background-color","orange");
+    }// end of generate 2
+    if(generate == 3) {
+      setProperty("txtFactsOnFunFacts","text","Fun Fact #3 More information doesn’t always mean more learning: When processing information, the brain has to do work to understand. Because of this you should not present large amounts of information to your learners and expect there to be an increase in learning");
+      setProperty("txtFactsOnFunFacts","background-color","green");
+    }// end of generate 3
+    if(generate == 4) {
+      setProperty("txtFactsOnFunFacts","text","Fun Fact #4 Our brain functions on the “use it or lose it” principle: The pathways that are used the most usually get well-established and stronger. The pathways in our brain that are not used get built over.");
+      setProperty("txtFactsOnFunFacts","background-color","blue");
+    }// end of generate 4
+    if(generate == 5) {
+      setProperty("txtFactsOnFunFacts","text","Fun Fact #5 Making mistakes are an essential part of learning: the science of learning shows us that making mistakes is actually an essential part of learning. For example, the first time we get on a bike we don’t all learn to ride right away, we get better by practicing.");
+      setProperty("txtFactsOnFunFacts","background-color","purple");
+    }// end of generate 5
+  });  
+}
+buttonsSleep();
+//Holds the code for all the buttons on the "Sleep" screen
+function buttonsSleep() {
+  //Setting variables to hold "Hours" and "Tired" columns from the "Sleep Study" dataset
+  var hoursList = getColumn("Sleep Study", "Hours");
+  var tiredList = getColumn("Sleep Study", "Tired");
+  
+  //Generates random Tired Ranking when tapped, displays the corresponding amounts of sleep
+  //Plays vibrant-button sound
+  onEvent("btnGenerateOnSleep","click", function( ) {
+    playSound("sound://category_points/vibrant_game_ding_touch_1.mp3"); 
+    
+    //generate the random Tired Ranking value to search for
+    var generateSleep = randomNumber(1, 5);
+  
+    var itemCount = 0; // used to divide the average by amt of items
+    var sleepHours = [];
+    var sleepTotal = 0;
+    for(var j = 0; j < 50; j++){
+      if(tiredList[j] == generateSleep) {
+        sleepHours = hoursList[j] + " hours of sleep" + "\n" + sleepHours;
+        sleepTotal = sleepTotal + hoursList[j];
+        itemCount++;
+      }
+    }
+    setProperty("txtDatasetOnSleep", "text", "Tired Ranking: " + generateSleep + "\n" + "Hours of sleep that people with a Tired Ranking of " + generateSleep + " had:" + "\n" + "\n" + sleepHours);
+    
+    //Reduces the list of sleep hours into a single average
+    var average1 = sleepTotal / itemCount;
+    var average = average1.toString().substring(0,3); // converts number to string, then prints only the first 4 characters
+    setProperty("txtAverageOnSleep", "text", "The average hours of sleep for a Tired Ranking of " + generateSleep + ": " + "\n" + average + " hours");
+  }); 
+  //Button is on "Sleep" screen, takes user to "StudyCircle" screen
+  //Plays pop-button sound
+  onEvent("btnHomeOnSleep", "click", function() {
+    playSound("sound://category_pop/deep_bubble_notification.mp3");
+    setScreen("scrnStudyCircle");
+    
+    setProperty("txtDatasetOnSleep", "text", "Tired Ranking:");
+    setProperty("txtAverageOnSleep", "text", "Average hours of sleep:");
+  });
+}
+buttonsGameStart();
+//Holds the code for buttons on the "GameStart" screen
+function buttonsGameStart() {
+  //Hide second set of information and the "Start" button
+  hideElement("txtDirectionsOnGameStart");
+  hideElement("btnStartOnGameStart");
+  //Button is on "GameStart", hides the first two textboxes and the "Next" button, and reveals the second textbox and the "Start" button
+  //Plays a pop-button sound
+  onEvent("btnNextOnGameStart", "click", function(){
+    hideElement("txtDescription1OnGameStart");
+    hideElement("txtDescription2OnGameStart");
+    hideElement("btnNextOnGameStart");
+    showElement("txtDirectionsOnGameStart");
+    showElement("btnStartOnGameStart");
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+  });
+  //Button is on "GameStart" screen, takes user to the "StudyCircle" screen
+  //Plays a pop-button sound
+  onEvent("btnHomeOnGameStart", "click", function(){
+    hideElement("txtDirectionsOnGameStart");
+    hideElement("btnStartOnGameStart");
+    showElement("txtDescription1OnGameStart");
+    showElement("txtDescription2OnGameStart");
+    showElement("btnNextOnGameStart");
+    playSound( "sound://category_pop/deep_bubble_notification.mp3");
+    setScreen("scrnStudyCircle");
+  });
+}
+//The buttonsGameStart function does not include the "NumberMemory" start button, which is shown below.
+  
+
+
+
+//Number Memory Game screen
+
+//Setting up the columns of numbers to be used in Number Memory game
+//Chemistry Columns
+var atomicNumberList = getColumn("Periodic Table", "AtomicNumber");
+var neutronNumberList = getColumn("Periodic Table", "NumberofNeutrons");
+var elementNameList = getColumn("Periodic Table", "Element");
+var elementYearList = getColumn("Periodic Table", "Year");
+
+//Geography Columns
+var medianAgeList = getColumn("Country Population", "Median Age");
+var countryNameList = getColumn("Country Population", "Country");
+var countryPopulation = getColumn("Country Population", "Population");
+var countryArea = getColumn("Country Population", "Land Area");
+
+//History Columns
+var presidentYearList = getColumn("US Presidents", "start");
+var presidentNameList = getColumn("US Presidents", "president");
+
+
+
+//Setting up lists of 'success' sounds in the game
+var cool = ["sound://category_achievements/vibrate_success_1_up.mp3", "sound://category_achievements/vibrant_game_slot_machine_win_3.mp3", "sound://category_achievements/vibrant_virtcal_achievment.mp3", "sound://category_achievements/puzzle_game_achievement_02.mp3"];
+var ultimate = ["sound://category_achievements/puzzle_game_achievement_01.mp3", "sound://category_achievements/puzzle_game_achievement_02.mp3", "sound://category_achievements/puzzle_game_achievement_big_03.mp3", "sound://category_achievements/puzzle_game_secret_unlock_01.mp3"];
+var exquisite = ["sound://category_space/Carina_SFX.mp3", "sound://category_transition/mysterious_reveal_1.mp3", "sound://category_transition/portal_reached_long_decay.mp3", "sound://category_space/Cassiopeia_SFX.mp3"]; 
+
+//Setting up global variables
+var level = 1;
+var sliderValue = "";
+
+//Button is on "NumberMemory" Screen, takes user to "StudyCircle" Screen
+//Also resets the elements of the "GameStart" and "NumberMemory" screens so the user can play again later
+//Plays pop-button sound
+onEvent("btnHomeOnNumberMemory", "click", function(){
+  //GameStart default displays
+  hideElement("txtDirectionsOnGameStart");
+  hideElement("btnStartOnGameStart");
+  showElement("txtDescription1OnGameStart");
+  showElement("txtDescription2OnGameStart");
+  showElement("btnNextOnGameStart");
+  
+  //NumberMemory default displays
+  hideElement("txtCorrectIncorrectOnNumberMemory");
+  hideElement("btnNextOnNumberMemory");
+  hideElement("txtNumInputOnNumberMemory");
+  hideElement("btnSubmitOnNumberMemory");
+  showElement("txtNumberOutputOnNumberMemory");
+  showElement("sliderOnNumberMemory");
+  
+  //Reset game values
+  setProperty("sliderOnNumberMemory", "value", 300);
+  setProperty("txtNumInputOnNumberMemory", "text", "");
+  setProperty("txtNumberOutputOnNumberMemory", "text", "");
+  
+  level = 1;
+  
+  //take the user back to "StudyCircle" screen
+  playSound("sound://category_pop/deep_bubble_notification.mp3");
+  setScreen("scrnStudyCircle");
+});
+//Button is on "WinGame" Screen, takes user to "StudyCircle" Screen
+//Plays pop-button sound
+onEvent("btnHomeOnWinGame", "click", function() {
+  //GameStart default displays
+  hideElement("txtDirectionsOnGameStart");
+  hideElement("btnStartOnGameStart");
+  showElement("txtDescription1OnGameStart");
+  showElement("txtDescription2OnGameStart");
+  showElement("btnNextOnGameStart");
+  
+  //NumberMemory default displays
+  hideElement("txtCorrectIncorrectOnNumberMemory");
+  hideElement("btnNextOnNumberMemory");
+  hideElement("txtNumInputOnNumberMemory");
+  hideElement("btnSubmitOnNumberMemory");
+  showElement("txtNumberOutputOnNumberMemory");
+  showElement("sliderOnNumberMemory");
+  
+  //Reset game values
+  setProperty("sliderOnNumberMemory", "value", 300);
+  setProperty("txtNumInputOnNumberMemory", "text", "");
+  setProperty("txtNumberOutputOnNumberMemory", "text", "");
+  
+  level = 1;
+  
+  //take user home
+  playSound("sound://category_pop/deep_bubble_notification.mp3");
+  setScreen("scrnStudyCircle");
+});
+//Button is on "GameStart" Screen, takes user to "NumberMemory" Screen and starts the game with the timer
+//Plays vibrant-button sound
+onEvent("btnStartOnGameStart", "click", function() {
+  playSound("sound://category_points/vibrant_game_ding_touch_1.mp3"); 
+  setScreen("scrnNumberMemory");
+   
+  //activate the timer function
+  timer();
+  
+  //hide the correct/incorrect result, "Next Level" button, input box, the home button, and submit button before the game
+  hideElement("txtCorrectIncorrectOnNumberMemory");
+  hideElement("btnNextOnNumberMemory");
+  hideElement("txtNumInputOnNumberMemory");
+  hideElement("btnSubmitOnNumberMemory");
+  hideElement("btnHomeOnNumberMemory");
+  
+  //Start first game level
+  levelsOneThree();
+  
+  //set current digits
+  setProperty("txtDigitsOnNumberMemory", "text", "current digits: "+ level);
+});
+//Button is on the "NumberMemory" screen, checks the user's input answer and executes actions based on correct/incorrect
+onEvent("btnSubmitOnNumberMemory", "click", function() {
+  //get the generated given number and the user's input
+  var numOutput = getNumber("txtNumberOutputOnNumberMemory");
+  var numInput = getNumber("txtNumInputOnNumberMemory");
+  
+  //hide the submit button and show the original number
+  hideElement("btnSubmitOnNumberMemory");
+  showElement("txtNumberOutputOnNumberMemory");
+  
+  if(numInput == numOutput) {
+    playSound(winSound(level));
+    //textbox says "Correct!" and submit button is hidden and "Next Level" is shown
+    correctMsg();
+    nextBtn();
+    
+    level++;
+  } else {
+    playSound(loseSound(level));
+    
+    //textbox says "Incorrect..." and restart button is shown
+    incorrectMsg();
+    restartBtn();
+    
+    //reset the level
+    level = 1;
+  }
+  
+  if(level == 12) {
+    stopSound();
+    setScreen("scrnWinGame");
+    playSound("sound://category_achievements/melodic_win_1.mp3");
+  }
+  
+  
+});
+//Button is on the "NumberMemory" screen, takes user to the next level of the game
+onEvent("btnNextOnNumberMemory", "click", function() {
+  stopSound();
+  playSound("sound://category_app/snap.mp3");
+  
+  //Hide the submit button, the input textbox, and the home button
+  hideElement("btnSubmitOnNumberMemory");
+  hideElement("txtNumInputOnNumberMemory");
+  hideElement("btnHomeOnNumberMemory");
+  
+  //reset timer value to original max
+  setProperty("sliderOnNumberMemory", "value", 300);
+  showElement("sliderOnNumberMemory");
+  
+  //set original game format
+  defaultVisuals();
+  //update the current digits of the given number
+  setProperty("txtDigitsOnNumberMemory", "text", "current digits: "+ level);
+  
+  timer();
+  
+  //On restart, start from level 1
+  if (level == 1) {
+    levelsOneThree();
+  }
+  
+  //Generate numbers to output
+  //Determining what function to use based on level
+  if (level == 3) {
+    //Levels 1 to 3
+    levelsOneThree();
+  } else if (level == 2) {
+    //Levels 1 to 3, and level 2
+    var random2Choose = randomNumber(1,2);
+    if (random2Choose == 1) {
+      levelTwo();
+    } else {
+      levelsOneThree();
+    }
+  } else if (level == 4){
+    //Level 4
+    levelsFour();
+  } else if ( (level == 5) || (level == 6) || (level == 7) ) {
+    //Level 5, 6, and 7
+    levelsFiveSeven();
+  } else if ( (level == 8)||(level==9)||(level==10)  ) {
+    //Level 8, 9, and 10
+    levelsEightTen();
+  } else if (level == 11) {
+    filterCountryArea();
+  }
+  
+});
+//Sets the buttons and textboxes to the original form of the game
+function defaultVisuals() {
+  //blank input
+  setProperty("txtNumInputOnNumberMemory", "text", "");
+  
+  //blank numOutput and the text is back once the user restarts the game
+  setProperty("txtNumberOutputOnNumberMemory", "text", "");
+  showElement("txtNumberOutputOnNumberMemory");
+  
+  //Hidden "Next Level" button
+  hideElement("btnNextOnNumberMemory");
+  
+  //Hidden "correct!" message
+  hideElement("txtCorrectIncorrectOnNumberMemory");
+}
+//Plays a positive sound according to the level when the user completes a stage
+//level {number} - the level/digits that the player is on
+//return {string} - the sound that is chosen to play based on the current level
+function winSound(level) {
+  var wSound; //the variable that stores the win sound link
+  if(level <4 ) {
+    wSound = "sound://category_achievements/vibrant_game_positive_achievement_1.mp3";
+  } else if (level <7) {
+    wSound = "sound://category_achievements/vibrant_game_game_gold_tresure_chest_open.mp3";
+  } else if (level <9) {
+    wSound = cool[randomNumber(0,3)];
+  } else if (level <12){
+    wSound = ultimate[randomNumber(0,3)];
+  } else {
+    wSound = exquisite[randomNumber(0,3)];
+  }
+  
+  return wSound;
+}
+//Play a negative sound according to the level when the user loses a stage
+//level {number} - the level/digits that the player is on
+//return {string} - the sound that is chosen to play based on the current level
+function loseSound(level) {
+  var lSound; //The variable that stores the lose sound link
+  if (level <10) {
+    lSound = "sound://category_alerts/vibrant_game_negative_alert.mp3";
+  } else {
+    lSound = "sound://category_transition/negative_game_over_whoosh.mp3";
+  }
+  
+  return lSound;
+}
+//Outputs "Correct!" in the "CorrectIncorrect" textbox
+function correctMsg() {
+  setProperty("txtCorrectIncorrectOnNumberMemory", "text", "Correct!");
+  //adjust the box format to fit the word "Correct!"
+  setProperty("txtCorrectIncorrectOnNumberMemory", "x", 97.5);
+  setProperty("txtCorrectIncorrectOnNumberMemory", "width", 125);
+  setProperty("txtCorrectIncorrectOnNumberMemory", "text-color", rgb(27, 168, 39));
+  showElement("txtCorrectIncorrectOnNumberMemory");
+}
+//Outputs "Incorrect..." in the "CorrectIncorrect" textbox
+function incorrectMsg() {
+  setProperty("txtCorrectIncorrectOnNumberMemory", "text", "Incorrect...");
+  //adjust the box format to fit the word "Incorrect..."
+  setProperty("txtCorrectIncorrectOnNumberMemory", "x", 81);
+  setProperty("txtCorrectIncorrectOnNumberMemory", "width", 159);
+  setProperty("txtCorrectIncorrectOnNumberMemory", "text-color", rgb(224, 75, 75));
+  showElement("txtCorrectIncorrectOnNumberMemory");
+}
+//Sets the default text of the "Next" button to "Next Level →" and makes the button appear
+function nextBtn () {
+  setProperty("btnNextOnNumberMemory", "text", "Next Level →");
+  showElement("btnNextOnNumberMemory");
+}
+//Sets the text of the "Next" button to "Try Again! →" and makes the button appear
+function restartBtn() {
+  setProperty("btnNextOnNumberMemory", "text", "Try Again! →");
+  showElement("btnNextOnNumberMemory");
+}
+//Generates random atomic number, random number of neutrons, or random median age of country and outputs to "txtNumberOutput"
+function levelsOneThree() {
+  //Choose which path to use, either atomic number or neutron number
+  var functionChoose = randomNumber(1,2);
+
+  if(functionChoose == 1) {   //Generates a random atomic number from the Periodic Table dataset with digits corresponding to level
+    //the index that the function outputs
+    var atomicNumber;
+    //infinite loop until the correct number is found
+    for(var i = 1; i>0 ; i++){
+      atomicNumber = atomicNumberList[(randomNumber(0,117))];
+      //If the number length is the same as the current level, and it is below max index 118
+      if((atomicNumber.toString().length == level) && (atomicNumber < 118)) {
+        {break; } //Break function after the correct digits are found
+      }
+    }
+    
+    setProperty("txtDescriptionOnNumberMemory", "text", "The atomic number of " + elementNameList[atomicNumber]);
+    setProperty("txtNumberOutputOnNumberMemory", "text", atomicNumber);
+    
+  } else if (functionChoose == 2){ //Generates a random neutron amount from the Periodic Table dataset with digits corresponding to level
+    //the index that the function outputs
+    var neutronNumber;
+    //infinite loop until the correct number is found
+    for(var k = 1; k>0 ; k++){
+      neutronNumber = neutronNumberList[(randomNumber(0,117))];
+      //If the number length is the same as the current level, and it is below max index 118
+      if((neutronNumber.toString().length == level) && (neutronNumber < 118)) {
+        {break; } //Break function after the correct digits are found
+      }
+    }
+    
+    setProperty("txtDescriptionOnNumberMemory", "text", "The number of neutrons in " + elementNameList[neutronNumber]);
+    setProperty("txtNumberOutputOnNumberMemory", "text", neutronNumber);
+    
+  }
+}
+//Generates a random median population age from and outputs to "txtNumberOutput"
+function levelTwo () {
+  //the index that the function outputs, less than 201
+  var medianAge = randomNumber(0,200);
+
+  setProperty("txtDescriptionOnNumberMemory", "text", "The median population age of " + countryNameList[medianAge]);
+  setProperty("txtNumberOutputOnNumberMemory", "text", medianAgeList[medianAge]);
+}
+//Generates random element discovery year or president start year and outputs to "txtNumberOutput"
+function levelsFour() {
+  //Choose which path to use, either element year or president year
+  var functionChoose = randomNumber(1,2);
+  
+  if(functionChoose == 1) { //Generates a random element year from the Periodic Table dataset with digits corresponding to level
+    //the index that the function returns
+    var elementYear;
+    //infinite loop until the correct number is found
+    for(var i = 1; i>0 ; i++){
+      elementYear = randomNumber(0,117);
+      //If the year number length is the same as the current level, and it is below max index 118
+      if(( (elementYearList[elementYear]).toString().length) == level ) {
+        {break; } //Break function after the correct digits are found
+      }
+    }
+    
+    setProperty("txtDescriptionOnNumberMemory", "text", "The year " + elementNameList[elementYear] + " was discovered");
+    setProperty("txtNumberOutputOnNumberMemory", "text", elementYearList[elementYear]);
+    
+  } else if (functionChoose == 2) { //Generates a random president start-term from the US Presidents dataset with digits corresponding to level
+      //the year that the function returns, index less than 42
+      var presidentYear = randomNumber(0,41);
+      
+      setProperty("txtDescriptionOnNumberMemory", "text", "The year " + presidentNameList[presidentYear] + " was elected president");
+      setProperty("txtNumberOutputOnNumberMemory", "text", presidentYearList[presidentYear]);
+  }
+
+}
+//Generates a random country area from the Country Population dataset with digits corresponding to level
+function levelsFiveSeven() {
+  //the index that the function outputs
+  var landArea;
+  //infinite loop until the correct number is found
+  for(var y = 1; y>0 ; y++){
+    landArea = randomNumber(0,200);
+    //If the number length is the same as the current level, and it is below max index 201
+    if((countryArea[landArea].toString().length == level)) {
+      {break; } //Break function after the correct digits are found
+    }
+  }
+  
+  setProperty("txtDescriptionOnNumberMemory", "text", "The land area of " + countryNameList[landArea] + " (km²)");
+  setProperty("txtNumberOutputOnNumberMemory", "text", countryArea[landArea]);
+}
+//Generates a random country population from the Country Population dataset with digits corresponding to level
+function levelsEightTen() {
+  //the index that the function outputs
+  var countryPop;
+  //infinite loop until the correct number is found
+  for(var k = 1; k>0 ; k++){
+    countryPop = randomNumber(0,200);
+    //If the number length is the same as the current level, and it is below max index 118
+    if((countryPopulation[countryPop].toString().length == level)) {
+      {break; } //Break function after the correct digits are found
+    }
+  }
+  
+  setProperty("txtDescriptionOnNumberMemory", "text", "The population of " + countryNameList[countryPop]);
+  setProperty("txtNumberOutputOnNumberMemory", "text", countryPopulation[countryPop]);
+}
+//Generates a combination of numbers from Country Population Dataset with digits corresponding to level
+function filterCountryArea() {
+  var combination = [];//The filtered list holding the final two values to be combined
+  
+  //the index for the list
+  var comb1;
+  var comb2;
+  
+  //infinite loop until the correct number is found
+  for(var k = 1; k>0 ; k++){
+    comb1 = randomNumber(0,200);
+    //If the number length is the same as the current level, and it is below max index 201
+    if((countryArea[comb1].toString().length == 5)) {
+      appendItem(combination, countryArea[comb1]);
+      {break; } //Break function after the correct digits are found
+    }
+  }
+  //infinite loop until the correct number is found
+  for(var z = 1; z>0 ; z++){
+    comb2 = randomNumber(0,200);
+    //If the number length is the same as the current level, and it is below max index 201
+    if((countryArea[comb2].toString().length == 6)) {
+      appendItem(combination, countryArea[comb2]);
+      {break; } //Break function after the correct digits are found
+    }
+  }
+  
+  showElement("txtNumberOutputOnNumberMemory");
+  setProperty("txtDescriptionOnNumberMemory", "text", "The land area of " + countryNameList[comb1] + " and " + countryNameList[comb2]);
+  setProperty("txtNumberOutputOnNumberMemory", "text", combination[0] + "" + combination[1]);
+}
+//Creates a timer effect to show the given number for a certain amount of time
+function timer() {
+  var interval; //Used to separate each decrease in the time by a certain interval
+  
+  //If the level is lower, the user has less time for their smaller number
+  //If the level is higher, the user has more time for their bigger number
+  if(level < 5) {
+    interval = 5+ (2*level);
+  } else if (level < 8) {
+    interval = 6.5 + (2*level);
+  } else if (level < 10) {
+    interval = 8.5 + (2*level);
+  } else {
+    interval = 10.5 + ((2*level)+level);
+  }
+
+  //set var t to the timer (setInterval) loop
+  var t = setInterval(function() {
+    //get the current value of the slider used as the timer
+    sliderValue = getNumber("sliderOnNumberMemory");
+
+    //subtract 1 from the slider value
+    setProperty("sliderOnNumberMemory", "value", sliderValue - 1);
+      
+      //When the slider's value is =25, hide the given number
+      //this creates the effect that the number is hidden IMMEDIATELY after the timer is done
+      //(If we hide the number exactly at 0 instead of 25, there is a delay in the hiding of elements!)
+      if (sliderValue == 25) {
+        // stop the timer loop
+        clearInterval(t);
+        
+        //hide the displayed number and the timer slider
+        hideElement("txtNumberOutputOnNumberMemory");
+        hideElement("sliderOnNumberMemory");
+        //show the input box, the submit button, and the home button
+        showElement("txtNumInputOnNumberMemory");
+        showElement("btnSubmitOnNumberMemory");
+        showElement("btnHomeOnNumberMemory");
+      }  
+      
+  }, interval);
+}
+
+
+
